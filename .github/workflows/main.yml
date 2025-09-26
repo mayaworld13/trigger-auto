@@ -1,12 +1,12 @@
 name: CI on Master
 
 on:
-  workflow_dispatch:  # Manual trigger
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: production  # <-- This triggers the approval gate
+    environment: production  
 
     steps:
       - name: Checkout master
@@ -28,9 +28,9 @@ jobs:
           body: |
             Hello,
 
-            The workflow for the **master branch** has been manually triggered and is awaiting approval to proceed.
+            The workflow for the **master branch** has been manually triggered.
 
-            Please review and approve the workflow in GitHub to continue with the deployment.
+            
 
             Best regards,  
             Your CI/CD System
