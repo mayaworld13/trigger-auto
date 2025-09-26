@@ -1,38 +1,39 @@
-name: CI on Main branch
+name: CI on Master
 
 on:
-  push:
-    branches: [ "main" ]
+  workflow_dispatch:  # Manual trigger
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: production  # <-- This triggers the approval gate
+
     steps:
-      - name: Checkout
+      - name: Checkout master
         uses: actions/checkout@v3
+        with:
+          ref: master
 
-      - name: Run tests
-        run: echo "✅ Main branch workflow has been finished"
-
-      - name: Trigger master workflow
-        if: success()
-        run: |
-          curl -X POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" \
-            https://api.github.com/repos/${{ github.repository }}/actions/workflows/main.yml/dispatches \
-            -d '{"ref":"master"}'
-
-      - name: Send email notification (Main Branch)
-        if: success()
+      - name: Send email notification (Approval Pending)
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.action == '' }}
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com  # Use your SMTP server
+          server_address: smtp.gmail.com
           server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}  # Your email username
-          password: ${{ secrets.EMAIL_PASSWORD }}  # Your email password
-          from: ${{ secrets.EMAIL_USERNAME }}  # Use the same email as sender
-          to: mayank07082001@gmail.com  # Replace with recipient's email
-          subject: "Main Branch Workflow Triggered"
-          body: ${{ secrets.EMAIL_BODY }}
-         
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          from: ${{ secrets.EMAIL_USERNAME }}
+          to: mayank07082001@gmail.com
+          subject: "Approval Required for Master Branch Workflow"
+          body: |
+            Hello,
+
+            The workflow for the **master branch** has been manually triggered and is awaiting approval to proceed.
+
+            Please review and approve the workflow in GitHub to continue with the deployment.
+
+            Best regards,  
+            Your CI/CD System
+
+      - name: Run build
+        run: echo "🚀 Master branch workflow triggered after approval!"
