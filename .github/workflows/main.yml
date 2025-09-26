@@ -31,6 +31,7 @@ jobs:
           smtp-port: 587
           smtp-username: ${{ secrets.EMAIL_USERNAME }}
           smtp-password: ${{ secrets.EMAIL_PASSWORD }}
+          from: ${{ secrets.EMAIL_USERNAME }}
           to: mayank07082001@gmail.com # Replace with recipient's email
           subject: "Main Branch Workflow Triggered"
           body: |
