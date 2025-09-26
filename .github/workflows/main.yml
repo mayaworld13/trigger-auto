@@ -22,3 +22,17 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/actions/workflows/main.yml/dispatches \
             -d '{"ref":"master"}'
+
+      - name: Send email notification (Main Branch)
+        if: success()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          smtp-server: smtp.gmail.com  # Use your SMTP server
+          smtp-port: 587
+          smtp-username: ${{ secrets.EMAIL_USERNAME }}
+          smtp-password: ${{ secrets.EMAIL_PASSWORD }}
+          to: mayank07082001@gmail.com # Replace with recipient's email
+          subject: "Main Branch Workflow Triggered"
+          body: |
+           The Main Branch workflow has been successfully completed and the Master Branch workflow has been triggered.
+         
