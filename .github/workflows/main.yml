@@ -23,38 +23,38 @@ jobs:
             https://api.github.com/repos/${{ github.repository }}/actions/workflows/main.yml/dispatches \
             -d '{"ref":"master"}'
 
-      - name: Wait for master workflow run to appear
-        if: success()
-        run: sleep 15  # Wait to allow run to be created
+      # - name: Wait for master workflow run to appear
+      #   if: success()
+      #   run: sleep 15  # Wait to allow run to be created
 
-      - name: Get latest master workflow run id
-        id: get_run
-        run: |
-          runs_json=$(curl -s -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/runs?branch=master&event=workflow_dispatch")
+      # - name: Get latest master workflow run id
+      #   id: get_run
+      #   run: |
+      #     runs_json=$(curl -s -H "Accept: application/vnd.github+json" \
+      #       -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" \
+      #       "https://api.github.com/repos/${{ github.repository }}/actions/runs?branch=master&event=workflow_dispatch")
 
-          run_id=$(echo "$runs_json" | jq '.workflow_runs[0].id')
-          echo "run_id=$run_id" >> $GITHUB_OUTPUT
+      #     run_id=$(echo "$runs_json" | jq '.workflow_runs[0].id')
+      #     echo "run_id=$run_id" >> $GITHUB_OUTPUT
 
-      - name: Send email notification (Main Branch with Approval Link)
-        if: success()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          from: ${{ secrets.EMAIL_USERNAME }}
-          to: mayank07082001@gmail.com
-          subject: "Main Branch Workflow Triggered - Approval Needed"
-          body: |
-            Hello,
+      # - name: Send email notification (Main Branch with Approval Link)
+      #   if: success()
+      #   uses: dawidd6/action-send-mail@v3
+      #   with:
+      #     server_address: smtp.gmail.com
+      #     server_port: 587
+      #     username: ${{ secrets.EMAIL_USERNAME }}
+      #     password: ${{ secrets.EMAIL_PASSWORD }}
+      #     from: ${{ secrets.EMAIL_USERNAME }}
+      #     to: mayank07082001@gmail.com
+      #     subject: "Main Branch Workflow Triggered - Approval Needed"
+      #     body: |
+      #       Hello,
 
-            The master branch workflow has been triggered and is awaiting approval to proceed with deployment.
+      #       The master branch workflow has been triggered and is awaiting approval to proceed with deployment.
 
-            Please review and approve the workflow run here:
-            https://github.com/${{ github.repository }}/actions/runs/${{ steps.get_run.outputs.run_id }}
+      #       Please review and approve the workflow run here:
+      #       https://github.com/${{ github.repository }}/actions/runs/${{ steps.get_run.outputs.run_id }}
 
-            Best regards,  
-            Your CI/CD System
+      #       Best regards,  
+      #       Your CI/CD System
