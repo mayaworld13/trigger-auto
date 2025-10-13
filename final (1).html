@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Impactbuild Enterprises — Electrical & Security</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts / Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Swiper (Testimonials) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .card-hover { transition: all .3s ease; }
+    .card-hover:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-gray-50">
+
+  <!-- NAVBAR -->
+  <header class="fixed inset-x-0 top-0 z-30 bg-white/80 backdrop-blur-sm border-b">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="#" class="inline-flex items-center gap-3">
+        <img src="logo.png" alt="Impactbuild Logo" class="w-12 h-12 object-contain rounded-lg">
+        <div>
+          <div class="text-lg font-semibold text-slate-900">Impactbuild <span class="text-indigo-600">Enterprises</span></div>
+          <div class="text-xs text-slate-500 -mt-0.5">Electrical • CCTV • Security • Manpower</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-700">
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#services" class="hover:text-blue-600">Services</a>
+        <a href="#why" class="hover:text-blue-600">Why Us</a>
+        <a href="#testimonials" class="hover:text-blue-600">Testimonials</a>
+        <a href="#contact" class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow">Contact</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button id="menuBtn" class="md:hidden p-2 rounded-md text-slate-700">
+        <i class='bx bx-menu text-2xl'></i>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t bg-white/95">
+      <div class="px-6 py-4 flex flex-col gap-3">
+        <a href="#about" class="py-2">About</a>
+        <a href="#services" class="py-2">Services</a>
+        <a href="#why" class="py-2">Why Us</a>
+        <a href="#testimonials" class="py-2">Testimonials</a>
+        <a href="#contact" class="py-2 font-semibold text-white bg-blue-600 rounded">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="pt-20">
+    <section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-center bg-cover transform scale-105"
+           style="background-image: url('https://picsum.photos/seed/impactbuild-hero/1600/1000');"
+           data-aos="zoom-in"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-transparent"></div>
+
+      <div class="relative z-10 text-center text-white px-6">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight"
+            data-aos="fade-up" data-aos-delay="200">
+          Powering <span class="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent animate-pulse">Safer, Smarter Spaces</span>
+        </h1>
+        <p class="mt-4 text-lg md:text-xl text-white/90 max-w-2xl mx-auto"
+           data-aos="fade-up" data-aos-delay="400">
+          End-to-end electrical & security services — CCTV, alarms, access control, and trusted manpower.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
+          <a href="#contact"
+             class="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold shadow-lg hover:scale-105 transition">
+            <i class='bx bx-phone-call animate-bounce'></i>
+            Request a Free Quote
+          </a>
+          <a href="#services"
+             class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/90 text-slate-900 font-medium shadow hover:scale-105 transition">
+            Explore Services →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave divider -->
+    <div class="relative">
+      <svg class="absolute -top-1 w-full h-16 text-gray-50" preserveAspectRatio="none" viewBox="0 0 1440 320">
+        <path fill="currentColor" d="M0,64L80,106.7C160,149,320,235,480,261.3C640,288,800,256,960,224C1120,192,1280,160,1360,144L1440,128V320H0Z"></path>
+      </svg>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="rounded-xl overflow-hidden shadow-lg" data-aos="fade-right">
+          <img src="https://picsum.photos/seed/impactbuild-about/900/600" alt="About Impactbuild" class="w-full h-72 object-cover md:h-full">
+        </div>
+        <div data-aos="fade-left">
+          <h2 class="text-3xl font-bold text-slate-900">About Impactbuild Enterprises</h2>
+          <p class="mt-4 text-slate-700">We provide professional electrical installations, modern surveillance solutions and reliable manpower. Safety, quality and timely delivery are at the core of every engagement.</p>
+          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700">
+            <li class="flex items-start gap-3"><i class='bx bx-check text-blue-500 mt-1'></i><span><strong>End-to-end electrical</strong><div class="text-sm text-slate-600">Wiring · panels · maintenance</div></span></li>
+            <li class="flex items-start gap-3"><i class='bx bx-check text-blue-500 mt-1'></i><span><strong>Smart surveillance</strong><div class="text-sm text-slate-600">CCTV · NVR · remote access</div></span></li>
+            <li class="flex items-start gap-3"><i class='bx bx-check text-blue-500 mt-1'></i><span><strong>Security systems</strong><div class="text-sm text-slate-600">Alarms · access control</div></span></li>
+            <li class="flex items-start gap-3"><i class='bx bx-check text-blue-500 mt-1'></i><span><strong>Manpower supply</strong><div class="text-sm text-slate-600">Skilled technicians & labor</div></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="bg-slate-50 py-20">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-aos="fade-up">Our Services</h2>
+        <p class="text-slate-600 mt-3 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="150">Practical solutions tailored for long-term reliability and safety.</p>
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="bg-white rounded-2xl shadow-md p-6 card-hover" data-aos="fade-up">
+            <i class="bx bx-bolt text-4xl text-blue-600 mb-3"></i>
+            <h4 class="text-lg font-semibold text-indigo-600">Electrical Installations</h4>
+            <p class="mt-2 text-sm text-slate-600">Wiring, panels, power distribution & preventive maintenance.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-md p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-cctv text-4xl text-blue-600 mb-3"></i>
+            <h4 class="text-lg font-semibold text-indigo-600">CCTV & Surveillance</h4>
+            <p class="mt-2 text-sm text-slate-600">HD cameras, NVRs, remote monitoring & tailored plans.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-md p-6 card-hover" data-aos="fade-up" data-aos-delay="200">
+            <i class="bx bx-shield-alt-2 text-4xl text-blue-600 mb-3"></i>
+            <h4 class="text-lg font-semibold text-indigo-600">Security Systems</h4>
+            <p class="mt-2 text-sm text-slate-600">Access control, alarms, fire detection & integrated security.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-md p-6 card-hover" data-aos="fade-up" data-aos-delay="300">
+            <i class="bx bx-group text-4xl text-blue-600 mb-3"></i>
+            <h4 class="text-lg font-semibold text-indigo-600">Manpower Supply</h4>
+            <p class="mt-2 text-sm text-slate-600">Skilled technicians & workforce for projects with compliance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="why" class="max-w-7xl mx-auto px-6 py-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900" data-aos="fade-up">Why Choose Impactbuild?</h2>
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow card-hover" data-aos="fade-up">
+          <i class='bx bx-award text-3xl text-blue-600 mb-3'></i>
+          <h4 class="font-semibold">Proven Expertise</h4>
+          <p class="text-sm text-slate-600 mt-1">Years of hands-on experience across diverse projects.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow card-hover" data-aos="fade-up" data-aos-delay="100">
+          <i class='bx bx-shield text-3xl text-blue-600 mb-3'></i>
+          <h4 class="font-semibold">Safety & Compliance</h4>
+          <p class="text-sm text-slate-600 mt-1">Strict adherence to safety standards & certified processes.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow card-hover" data-aos="fade-up" data-aos-delay="200">
+          <i class='bx bx-time text-3xl text-blue-600 mb-3'></i>
+          <h4 class="font-semibold">Fast Response</h4>
+          <p class="text-sm text-slate-600 mt-1">Reliable support & rapid deployment whenever you need us.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold" data-aos="fade-up">Trusted by Clients</h2>
+        <p class="text-white/80 mt-2" data-aos="fade-up" data-aos-delay="100">Real results, delivered reliably.</p>
+        <div class="swiper mt-10" data-aos="fade-up" data-aos-delay="200">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide bg-white/10 rounded-xl p-6">
+              <p>"Impactbuild delivered on time & maintained high safety standards."</p>
+              <footer class="mt-4 text-sm text-white/80">— R. Sharma, Facility Manager</footer>
+            </div>
+            <div class="swiper-slide bg-white/10 rounded-xl p-6">
+              <p>"Great CCTV setup with excellent remote access features."</p>
+              <footer class="mt-4 text-sm text-white/80">— K. Agarwal, Retail Owner</footer>
+            </div>
+            <div class="swiper-slide bg-white/10 rounded-xl p-6">
+              <p>"Skilled technicians & dependable manpower supply."</p>
+              <footer class="mt-4 text-sm text-white/80">— M. Singh, Project Lead</footer>
+            </div>
+          </div>
+          <div class="swiper-pagination mt-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-20">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div data-aos="fade-right">
+          <h3 class="text-3xl font-bold">Contact Us</h3>
+          <p class="text-slate-600 mt-2">Reach out for a free site survey or quote.</p>
+          <ul class="mt-6 space-y-3 text-slate-700">
+            <li><strong>Name:</strong> Arjun Singh</li>
+            <li><strong>Phone:</strong> <a href="tel:+918279725012" class="text-blue-600">8279725012</a></li>
+            <li><strong>Email:</strong> <a href="mailto:impactbuildenterprises@gmail.com" class="text-blue-600">impactbuildenterprises@gmail.com</a></li>
+            <li><strong>Address:</strong> 2nd Floor, A55, Sector 2, Noida, 201301</li>
+            <li><strong>GSTIN:</strong> 07HNRPS7489J1ZM</li>
+          </ul>
+          <div class="mt-6 rounded-lg overflow-hidden shadow">
+            <iframe class="w-full h-56" src="https://www.google.com/maps?q=A55+Sector+2+Noida&output=embed"></iframe>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow" data-aos="fade-left">
+          <h4 class="font-semibold">Send a Message</h4>
+          <form id="contactForm" class="mt-4 grid gap-3">
+            <input name="name" placeholder="Your name" required class="px-4 py-2 border rounded focus:ring-2 focus:ring-blue-200"/>
+            <input name="email" type="email" placeholder="Email" required class="px-4 py-2 border rounded focus:ring-2 focus:ring-blue-200"/>
+            <input name="phone" placeholder="Phone" class="px-4 py-2 border rounded focus:ring-2 focus:ring-blue-200"/>
+            <textarea name="message" rows="4" placeholder="Tell us about your project..." class="px-4 py-2 border rounded focus:ring-2 focus:ring-blue-200"></textarea>
+            <button type="submit" class="px-4 py-2 rounded bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow hover:scale-105 transition">Send Message</button>
+            <div id="formStatus" class="text-sm text-slate-500 mt-2"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© <span id="yr"></span> Impactbuild Enterprises — All rights reserved.</div>
+      <div class="text-sm text-slate-400">Designed for reliability & safety</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    new Swiper('.swiper', { loop: true, pagination: { el: '.swiper-pagination', clickable: true }});
+    document.getElementById("yr").textContent = new Date().getFullYear();
+    document.getElementById("menuBtn").addEventListener("click", ()=> {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    });
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      document.getElementById("formStatus").textContent = "Thank you! We'll get back to you shortly.";
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
